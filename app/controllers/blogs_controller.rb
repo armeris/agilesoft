@@ -5,7 +5,11 @@ class BlogsController < ApplicationController
 		@blog = Blog.where(visible: true).last
 		@comment = Comment.new
 		@old_posts = Blog.where(visible: true).sort{|a,b| b[:created_at]<=>a[:created_at]}
-		@comments = @blog.comments.where(:deleted => false).sort{|a,b| a[:created_at]<=>b[:created_at]}
+		if @blog
+			@comments = @blog.comments.where(:deleted => false).sort{|a,b| a[:created_at]<=>b[:created_at]}
+		else
+			@comments = []
+		end
 	end
 
 	def show
