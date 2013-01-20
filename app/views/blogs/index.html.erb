@@ -1,9 +1,9 @@
-<div id="add_comentario">
-  <%= render 'partials/form_comentario' %>
-</div>
 <% if !@blog %>
   <h1 class="message">¡No hay ningún post!</h1>
 <% else %>
+  <div id="add_comentario">
+    <%= render 'partials/form_comentario' %>
+  </div>
   <div id="main_content">
     <div id="post">
       <h2 id="post_title" style="float:left;"><%= @blog.title %></h2>
