@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Agilesoft2</title>
+  <title>AgileSoft</title>
   <%= stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Ubuntu|Candal"%>
   <script type="text/javascript" src="https://apis.google.com/js/plusone.js" lang="es-es"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  
   <%= csrf_meta_tags %>
+
+  <script>
+  	var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-11469470-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    $(document).ready(function(){
+      $("pre.ruby").snippet("ruby",{style:"vim-dark"});
+      $("pre.html").snippet("html",{style:"vim-dark"});
+      $("pre.js").snippet("javascript",{style:"vim-dark"});
+      $("pre.shell").snippet("sh",{style:"vim-dark"});
+    });
+  </script>
 </head>
 <body>
 	<header>
