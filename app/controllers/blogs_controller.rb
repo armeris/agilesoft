@@ -84,7 +84,7 @@ class BlogsController < ApplicationController
 			if request.referrer.match /edit/
 				redirect_to posts_path(:post_id => @blog.id)
 			elsif request.referrer.match /create/
-				render :create_post
+				redirect_to :action => :post_list
 			end
 		end
 	end
