@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agilesoft2</title>
+  <%= stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Ubuntu|Candal"%>
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js" lang="es-es"></script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header>
+		<div id="logo"></div>
+	</header>
+	<nav>
+		<% if request.fullpath.match /about/ %>
+			<%= link_to "Blog", root_path, :class => 'button' %>
+			<%= link_to "Sobre mi", about_path, :class => 'button current' %>
+		<% else %>
+			<%= link_to "Blog", root_path, :class => 'button current' %>
+			<%= link_to "Sobre mi", about_path, :class => 'button' %>
+		<% end %>
+	</nav>
+
+	<%= yield %>
+
+</body>
+</html>

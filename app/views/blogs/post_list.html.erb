@@ -1,0 +1,22 @@
+<h1>Listado de posts</h1>
+<table>
+	<tr>
+		<th>Título</th>
+		<th>Ver</th>
+		<th>Editar</th>
+		<th>Visible</th>
+	</tr>
+<% @list.each do |post| %>
+	<tr>
+		<td><%= post.title %></td>
+		<td><%= link_to "Ver", posts_path(:post_id => post.id) %></td>
+		<td><%= link_to "Editar", edit_post_path(:post_id => post.id) %></td>
+		<td>
+			<% if post.visible %>
+				<%= link_to "Visible", visible_path(:post_id => post.id), :method => :post %>
+			<% else %>
+				<%= link_to "Invisible", visible_path(:post_id => post.id), :method => :post %>
+			<% end %>
+		</tr>
+<% end %>
+</table>

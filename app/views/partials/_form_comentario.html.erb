@@ -1,0 +1,18 @@
+<div class="boton_cerrar" onclick="$('#add_comentario').hide();"></div>
+<%= form_tag( save_comment_path(:post_id => @blog.id),:remote=>true) do |f| %>
+  <%= hidden_field_tag 'post_id' %>
+
+  <div class="field">
+    <%= label_tag :autor %>
+    <br/>
+    <%= text_field_tag :author %>
+  </div>
+
+  <div class="field">
+    <%= cktext_area("comment", "content", :value => @comment.content, :toolbar => "Simple", :input_html => {:name => 'comment[content]'}) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Enviar comentario" %>
+  </div>
+<% end %>
