@@ -4,5 +4,5 @@
 <% end %>
 
 <%= link_to image_tag("comentar2.png"), nil, :id => :show_comment_form, :data_ref => @blog.id %>
-<%= link_to image_tag("twitter.png"), "https://twitter.com/share?url=http://agilesoft.es/posts/#{@blog.id}&via=agilesoft_es&text=#{(@blog.content[0..100]+"...").gsub(/<\/?[^>]*>/, "")}&lang=es", :target => "_blank" %>
-<g:plusone count="false" href="http://agilesoft.es/blogs/#{@blog.id}"/>
+<%= link_to image_tag("twitter.png"), "https://twitter.com/share?url=http://www.agilesoft.es/posts/#{@blog.id}&via=agilesoft_es&text=#{(@blog.content[0..100]+"...").gsub(/<\/?[^>]*>/, "")}&lang=es", :target => "_blank" %>
+<g:plusone count="false" href="http://www.agilesoft.es/posts/#{@blog.id}"/>
