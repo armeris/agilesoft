@@ -11,7 +11,7 @@ Agilesoft2::Application.routes.draw do
   get "/edit_post/:post_id" => "blogs#edit_post", :as => "edit_post"
   post "/save_post" => "blogs#save_post"
   post "/visible/:post_id" => "blogs#visible_post", :as => "visible"
-  get 'blogs/rss' => 'blogs#rss'
+  get '/rss' => 'blogs#rss'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
