@@ -1,9 +1,9 @@
 xml.instruct! :xml, :version => "1.0" 
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Agilesoft"
-    xml.description "Blog sobre desarrollo"
-    xml.link root_path
+    xml.title "AgileSoft"
+    xml.description "Blog sobre desarrollo de software"
+    xml.link "http://www.agilesoft.es/"
 
     for post in @posts
       xml.item do
