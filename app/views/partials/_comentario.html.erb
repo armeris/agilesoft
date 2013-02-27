@@ -1,7 +1,7 @@
 <div class="comment" id="comment_<%= comentario.id %>">
 	<h3><%= comentario.author %></h3>
 	<div class="comment_content">
-		<%= raw(comentario.content)%>
+		<%= sanitize comentario.content, :tags => %w(p br strong em u strike) %>
 	</div>
 	<div class="comment_footer">
 		<%= "#{comentario.updated_at.to_s(:mifecha)} a las #{comentario.updated_at.to_s(:mihora)}"%>
