@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	protect_from_forgery
+	
 	def destroy
 		if params[:id]
 			@comment = Comment.find_by_id params[:id]

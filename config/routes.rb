@@ -6,15 +6,14 @@ Agilesoft2::Application.routes.draw do
   get "/posts/:post_id" => "blogs#show", :as => "posts"
   get "/blogs/:post_id" => "blogs#show"
   delete "/posts/delete/:post_id" => "blogs#delete_post", :as => "post_delete"
-  delete "/comments/delete/:comment_id" => "blogs#delete_comment", :as => "comment_delete"
-  get "/about" => "blogs#about"
-  post "/posts/:post_id/save_comment" => "blogs#save_comment", :as => "save_comment"
   get "/create_post" => "blogs#create_post"
   get "/posts_list" => "blogs#post_list"
   get "/edit_post/:post_id" => "blogs#edit_post", :as => "edit_post"
   post "/save_post" => "blogs#save_post"
   post "/visible/:post_id" => "blogs#visible_post", :as => "visible"
   get '/rss' => 'blogs#rss'
+
+  get "/about" => "home#about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

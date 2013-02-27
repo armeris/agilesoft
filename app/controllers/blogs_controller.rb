@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+	protect_from_forgery
+	
 	before_filter :authenticate_user!, :except => [:index, :show, :about, :save_comment, :rss]
 
 	def index
@@ -30,9 +32,6 @@ class BlogsController < ApplicationController
 		end
 
 		redirect_to root_path
-	end
-
-	def about
 	end
 
 	def create_post
