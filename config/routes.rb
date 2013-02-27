@@ -1,6 +1,8 @@
 Agilesoft2::Application.routes.draw do
   devise_for :users
 
+  resources :comments, :only => [:create, :destroy]
+  
   get "/posts/:post_id" => "blogs#show", :as => "posts"
   get "/blogs/:post_id" => "blogs#show"
   delete "/posts/delete/:post_id" => "blogs#delete_post", :as => "post_delete"

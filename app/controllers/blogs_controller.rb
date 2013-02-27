@@ -32,20 +32,6 @@ class BlogsController < ApplicationController
 		redirect_to root_path
 	end
 
-	def delete_comment
-		if params[:comment_id]
-			@comment = Comment.find_by_id params[:comment_id]
-			if @comment
-				@comment.deleted = true
-				@comment.save
-			end
-		end
-	end
-
-	def save_comment
-		@comment = Comment.create author: params[:author], content: params[:comment][:content], blog_id: params[:post_id], deleted: false
-	end
-
 	def about
 	end
 

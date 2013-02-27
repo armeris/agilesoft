@@ -1,5 +1,5 @@
 <div class="boton_cerrar" onclick="$('#add_comentario').hide();"></div>
-<%= form_tag( save_comment_path(:post_id => @blog.id),:remote=>true) do |f| %>
+<%= form_tag( comments_path(:post_id => @blog.id),:remote=>true) do |f| %>
   <%= hidden_field_tag 'post_id' %>
 
   <div class="field">

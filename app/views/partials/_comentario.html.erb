@@ -6,7 +6,7 @@
 	<div class="comment_footer">
 		<%= "#{comentario.updated_at.to_s(:mifecha)} a las #{comentario.updated_at.to_s(:mihora)}"%>
 		<% if current_user %>
-			<%= link_to image_tag("bin_small.png"), comment_delete_path(:comment_id => comentario.id), :remote => true, :method => :delete %>
+			<%= link_to image_tag("bin_small.png"), comment_path(:id => comentario.id), :remote => true, :method => :delete %>
 		<% end %>
 	</div>
 </div>
