@@ -1,3 +1,0 @@
-#!/bin/sh
-rvm use ruby-1.9.2-p320@agilesoft
-RACK_ENV=development
