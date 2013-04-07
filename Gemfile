@@ -40,6 +40,16 @@ gem 'unicorn'
 # To use debugger
 # gem 'debugger'
 
+group :test do
+	gem 'sqlite3'
+	gem 'cucumber-rails'
+	gem 'database_cleaner'
+end
+
+group :test, :development do
+	gem 'rspec-rails', "~> 2.0"
+end
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
