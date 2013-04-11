@@ -1,10 +1,5 @@
 <% if !@blog %>
   <h1 class="message">¡No hay ningún post!</h1>
-  <% if current_user %>
-  <div class="right_bar">
-    <%= render 'partials/admin_panel' %>
-  </div>
-  <% end %>
 <% else %>
   <div id="add_comentario">
     <%= render 'partials/form_comentario' %>
@@ -34,40 +29,9 @@
       <%= render 'partials/comentarios' %>
     </div>
   </div>
-  <div class="right_bar">
-    <div class="right_bar_content">
-      <% if @old_posts && !@old_posts.empty? %>
-        <h2>Listado de artículos</h2>
-        <ul>
-          <% @old_posts.each do |old_post| %>
-            <% if @blog.id == old_post.id %>
-              <li class="current_post"><%= link_to old_post.title, posts_path(:post_id => old_post.id) %></li>
-            <% else %>
-              <li><%= link_to old_post.title, posts_path(:post_id => old_post.id) %></li>
-            <% end %>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-    <div class="right_bar_content">
-      <% if @tags && !@tags.empty? %>
-        <h2>Listado de tags</h2>
-        <ul>
-          <% @tags.each do |tag| %>
-            <li><%= link_to tag.name.humanize %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-    <% if current_user %>
-      <%= render 'partials/admin_panel' %>
-    <% end %>
+  
 <% end %>
-  <div class="right_bar_content">
-    <%= link_to image_tag('rss.png'), "/rss.rss" %>
-    <%= link_to image_tag('twitter_big.png'), "https://www.twitter.com/agilesoft_es", :target=>"_blank,", :title => "Síguenos en Twitter" %>
-  </div>
-</div>
+  
 <div class="clear"></div>
 
 <br/>
