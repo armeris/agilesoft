@@ -42,12 +42,13 @@ gem 'unicorn'
 
 group :test do
 	gem 'sqlite3'
-	gem 'cucumber-rails'
-	gem 'database_cleaner'
+	gem 'cucumber-rails', :require => false
 end
 
 group :test, :development do
 	gem 'rspec-rails', "~> 2.0"
+	gem 'cucumber-rails-training-wheels'
+	gem 'database_cleaner'
 end
 
 group :development do
