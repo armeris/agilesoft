@@ -2,11 +2,10 @@ class BlogsController < ApplicationController
 	protect_from_forgery
 	
 	before_filter :authenticate_user!, :except => [:index, :show, :about, :save_comment, :rss]
+	before_filter :load_oldposts_tags, :only => [:index, :show]
 
 	def index
 		@blog = Blog.includes(:tags).where(visible: true).last
-		@comment = Comment.new
-		@old_posts = Blog.where(visible: true).order("created_at DESC")
 		if @blog
 			@comments = @blog.comments.where(:deleted => false).order("created_at ASC")
 		else
@@ -16,9 +15,6 @@ class BlogsController < ApplicationController
 
 	def show
 		@blog = Blog.includes(:tags).find_by_id params[:post_id]
-		@comment = Comment.new
-		@old_posts = Blog.where(visible: true).order("created_at DESC")
-		@comments = @blog.comments.where(:deleted => false).order("created_at ASC")
 		render :index
 	end
 
@@ -107,4 +103,13 @@ class BlogsController < ApplicationController
       format.rss { render :layout => false }
     end
   end
+
+  private
+
+  def load_oldposts_tags
+  	@comment = Comment.new
+  	@old_posts = Blog.where(visible: true).order("created_at DESC")
+  	@tags = Tag.order("name ASC")
+  end
+
 end
