@@ -6,9 +6,9 @@ class BlogsController < ApplicationController
 	def index
 		@blog = Blog.includes(:tags).where(visible: true).last
 		@comment = Comment.new
-		@old_posts = Blog.where(visible: true).sort{|a,b| b[:created_at]<=>a[:created_at]}
+		@old_posts = Blog.where(visible: true).order("created_at DESC")
 		if @blog
-			@comments = @blog.comments.where(:deleted => false).sort{|a,b| a[:created_at]<=>b[:created_at]}
+			@comments = @blog.comments.where(:deleted => false).order("created_at ASC")
 		else
 			@comments = []
 		end
@@ -17,8 +17,8 @@ class BlogsController < ApplicationController
 	def show
 		@blog = Blog.includes(:tags).find_by_id params[:post_id]
 		@comment = Comment.new
-		@old_posts = Blog.where(visible: true).sort{|a,b| b[:created_at]<=>a[:created_at]}
-		@comments = @blog.comments.where(:deleted => false).sort{|a,b| a[:created_at]<=>b[:created_at]}
+		@old_posts = Blog.where(visible: true).order("created_at DESC")
+		@comments = @blog.comments.where(:deleted => false).order("created_at ASC")
 		render :index
 	end
 
@@ -87,7 +87,7 @@ class BlogsController < ApplicationController
 	end
 
 	def post_list
-		@list = Blog.all.sort{|a,b| b[:updated_at]<=>a[:updated_at]}
+		@list = Blog.all.order("updated_at DESC")
 	end
 
 	def visible_post
