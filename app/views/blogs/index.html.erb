@@ -2,14 +2,7 @@
   <h1 class="message">¡No hay ningún post!</h1>
   <% if current_user %>
   <div class="right_bar">
-    <div class="right_bar_content">
-      <h2>Admin</h2>
-      <ul>
-        <li><%= link_to 'Nuevo post', create_post_path %></li>
-        <li><%= link_to 'Listado de posts', posts_list_path %></li>
-        <li><%= link_to 'Salir', destroy_user_session_path, :method => :delete %></li>
-      </ul>
-    </div>
+    <%= render 'partials/admin_panel' %>
   </div>
   <% end %>
 <% else %>
@@ -53,14 +46,7 @@
     <% end %>
   </div>
   <% if current_user %>
-  <div class="right_bar_content">
-    <h2>Admin</h2>
-    <ul>
-      <li><%= link_to 'Nuevo post', create_post_path, :id => "nuevo_post" %></li>
-      <li><%= link_to 'Listado de posts', posts_list_path %></li>
-      <li><%= link_to 'Salir', destroy_user_session_path, :method => :delete %></li>
-    </ul>
-  </div>
+    <%= render 'partials/admin_panel' %>
   <% end %>
 <% end %>
 <div class="right_bar_content">
