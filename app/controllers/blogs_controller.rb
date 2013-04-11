@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
 	before_filter :authenticate_user!, :except => [:index, :show, :about, :save_comment, :rss]
 
 	def index
-		@blog = Blog.where(visible: true).last
+		@blog = Blog.includes(:tags).where(visible: true).last
 		@comment = Comment.new
 		@old_posts = Blog.where(visible: true).sort{|a,b| b[:created_at]<=>a[:created_at]}
 		if @blog
@@ -15,7 +15,7 @@ class BlogsController < ApplicationController
 	end
 
 	def show
-		@blog = Blog.find_by_id params[:post_id]
+		@blog = Blog.includes(:tags).find_by_id params[:post_id]
 		@comment = Comment.new
 		@old_posts = Blog.where(visible: true).sort{|a,b| b[:created_at]<=>a[:created_at]}
 		@comments = @blog.comments.where(:deleted => false).sort{|a,b| a[:created_at]<=>b[:created_at]}
@@ -52,6 +52,14 @@ class BlogsController < ApplicationController
 			@blog.visible = true
 		else
 			@blog.visible = false
+		end
+		@blog.tags.clear
+		params[:tags].split(",").each do |item|
+			tag = Tag.where(name: item.downcase.strip).first
+			if !tag
+				tag = Tag.create! name: item.downcase.strip
+			end
+			@blog.tags << tag
 		end
 		@blog.updated_at = somedate = DateTime.new(params[:blog]["updated_at(1i)"].to_i, 
                         params[:blog]["updated_at(2i)"].to_i,

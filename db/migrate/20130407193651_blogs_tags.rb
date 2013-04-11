@@ -1,8 +1,8 @@
 class BlogsTags < ActiveRecord::Migration
   def change
-    create_table :blogs_tags do |t|
-      t.references :blog_id
-      t.references :tag_id
+    create_table :blogs_tags, :id => false do |t|
+      t.references :blog
+      t.references :tag
     end
   end
 end

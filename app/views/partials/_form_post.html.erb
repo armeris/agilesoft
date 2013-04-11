@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= label_tag :tags %>
+    <%= text_field_tag :tags, @blog.tags.map{|t| t.name.humanize}.join(", ") %>
+  </div>
+
+  <div class="field">
     <%= label_tag :updated_at, "Fecha de modificación" %>
     <%= datetime_select :blog, :updated_at %>
   </div>

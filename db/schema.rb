@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 20130407193651) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "blogs_tags", :force => true do |t|
-    t.integer "blog_id_id"
-    t.integer "tag_id_id"
+  create_table "blogs_tags", :id => false, :force => true do |t|
+    t.integer "blog_id"
+    t.integer "tag_id"
   end
 
   create_table "comments", :force => true do |t|
