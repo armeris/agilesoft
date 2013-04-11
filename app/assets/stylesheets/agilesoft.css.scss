@@ -123,11 +123,18 @@ body{
 				font-family:Ubuntu;
 				margin-bottom:15px;
 				text-shadow: #dddddd 0px 2px 1px;
+
+				a{
+					text-decoration:none;
+					color:black;
+				}
 			}
 			
 			#botones{
 				position:relative;
 				text-align:right;
+				width:450px;
+				float:right;
 			}
 			#botones a:hover{
 				background-color : transparent;
