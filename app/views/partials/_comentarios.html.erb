@@ -1,5 +1,7 @@
-<% if @comments && @comments.length > 0 %>
-	<% for comment in @comments %>
-		<%= render 'partials/comentario', :comentario => comment %>
+<div id="comments">
+	<% if comments && comments.length > 0 %>
+		<% for comment in comments %>
+			<%= render 'partials/comentario', :comentario => comment %>
+		<% end %>
 	<% end %>
-<% end %>
+</div>

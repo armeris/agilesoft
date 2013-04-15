@@ -1,0 +1,9 @@
+<ul>
+<% if @blogs %>
+	<% @blogs.each do |blog| %>
+		<div id="main_content">
+	    <%= render 'partials/post', :blog => blog %>
+	  </div>
+	<% end %>
+<% end %>
+</ul>

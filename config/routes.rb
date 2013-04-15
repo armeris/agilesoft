@@ -12,6 +12,7 @@ Agilesoft2::Application.routes.draw do
   post "/save_post" => "blogs#save_post"
   post "/visible/:post_id" => "blogs#visible_post", :as => "visible"
   get '/rss' => 'blogs#rss'
+  get '/tags/tag_filter' => 'tags#tag_filter'
 
   get "/about" => "home#about"
 

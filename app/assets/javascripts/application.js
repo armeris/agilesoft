@@ -20,6 +20,26 @@ $(document).ready(function(){
 		e.preventDefault();
 		add_comentario($(this).attr('data_ref'));
 	});
+
+	$("a.tag").click(function(){
+		if(location.href.match(/tag_filter/)){
+			var params = location.href.split("\?tags\=")
+			params = params[1].split(',');
+			var tag = $(this).text();
+			if(params.indexOf(tag)!=-1){
+				params.splice(params.indexOf(tag),1);
+			}else{
+				params.push(tag);
+			}
+			var args = params.join(',');
+			if(args.match(/^,/)){
+				args = args.substring(1);
+			}
+			$(this).attr("href",$(this).attr("href")+'?tags='+args);
+		}else{
+			$(this).attr("href",$(this).attr("href")+'?tags='+$(this).text());
+		}
+  });
 });
 
 function add_comentario(post_id){

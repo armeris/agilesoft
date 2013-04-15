@@ -49,7 +49,7 @@
           <h2>Listado de artículos</h2>
           <ul>
             <% @old_posts.each do |old_post| %>
-              <% if @blog.id == old_post.id %>
+              <% if @blog and @blog.id == old_post.id %>
                 <li class="current_post"><%= link_to old_post.title, posts_path(:post_id => old_post.id) %></li>
               <% else %>
                 <li><%= link_to old_post.title, posts_path(:post_id => old_post.id) %></li>
@@ -63,7 +63,9 @@
           <h2>Listado de tags</h2>
           <ul>
             <% @tags.each do |tag| %>
-              <li><%= link_to tag.name.humanize %></li>
+              <li <% if @tag_filter and @tag_filter.index(tag) %>class="selected"<% end %>>
+                <%= link_to tag.name.humanize, tags_tag_filter_path, :class => "tag" %>
+              </li>
             <% end %>
           </ul>
         <% end %>

@@ -5,29 +5,8 @@
     <%= render 'partials/form_comentario' %>
   </div>
   <div id="main_content">
-    <div id="post">
-      <h2 id="post_title"><%= link_to @blog.title, posts_path(post_id: @blog.id) %></h2>
-      <div id="botones">
-        <%= render 'partials/botones' %>
-      </div>
-      <div id="content">
-        <%= raw @blog.content %>
-      </div>
-      <% if !@blog.tags.empty? %>
-        <div id="tags">
-          <p>Tags: 
-            <% @blog.tags.each do |t| %>
-              <%= link_to t.name.humanize %>
-            <% end %>
-          </p>
-        </div>
-      <% end %>
-      <p id="firma">Enviado por <em class="big"><%= @blog.author %></em> el <em class="big"><%= @blog.updated_at.to_s(:mifecha) %></em> a las <em class="big"><%= @blog.updated_at.to_s(:mihora) %></em>
-      </p>
-    </div>
-    <div id="comments">
-      <%= render 'partials/comentarios' %>
-    </div>
+    <%= render 'partials/post', :blog => @blog %>
+    <%= render 'partials/comentarios', :comments => @comments %>
   </div>
   
 <% end %>

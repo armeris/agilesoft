@@ -270,7 +270,7 @@ body{
 						color:white;
 					}
 				}
-				li.current_post{
+				li.current_post,li.selected{
 				
 					a{
 						background-color:green;
@@ -324,7 +324,19 @@ body{
 			}
 		}
 	}
-	
+	ul{
+		li{
+			a.post_title{
+				font-size:20px;
+				font-weight:bold;
+				font-family:Ubuntu;
+				margin-bottom:15px;
+				text-shadow: #dddddd 0px 2px 1px;
+				text-decoration:none;
+				color:black;
+			}
+		}
+	}
 }
 
 input,button{

@@ -1,10 +1,10 @@
 <% if current_user %>
-	<%= link_to image_tag("bin_big.png"), post_delete_path(:post_id => @blog.id), :method => :delete %>
-	<%= link_to image_tag("edit.png"), edit_post_path(:post_id => @blog.id), :id => "edit_post" %>
+	<%= link_to image_tag("bin_big.png"), post_delete_path(:post_id => blog.id), :method => :delete %>
+	<%= link_to image_tag("edit.png"), edit_post_path(:post_id => blog.id), :id => "edit_post" %>
 <% end %>
 
-<%= link_to image_tag("comentar2.png"), nil, :id => :show_comment_form, :data_ref => @blog.id %>
-<%= link_to image_tag("twitter.png"), "https://twitter.com/share?url=http://www.agilesoft.es/posts/#{@blog.id}&via=agilesoft_es&text=#{(@blog.content[0..100]+"...").gsub(/<\/?[^>]*>/, "")}&lang=es", :target => "_blank" %>
+<%= link_to image_tag("comentar2.png"), nil, :id => :show_comment_form, :data_ref => blog.id %>
+<%= link_to image_tag("twitter.png"), "https://twitter.com/share?url=http://www.agilesoft.es/posts/#{blog.id}&via=agilesoft_es&text=#{(blog.content[0..100]+"...").gsub(/<\/?[^>]*>/, "")}&lang=es", :target => "_blank" %>
 <!-- Inserta esta etiqueta donde quieras que aparezca Botón +1. -->
 <div class="g-plusone" data-annotation="none"></div>
 <!-- Inserta esta etiqueta después de la última etiqueta de Botón +1. -->

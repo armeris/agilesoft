@@ -1,0 +1,22 @@
+<div id="post">
+  <h2 id="post_title"><%= link_to blog.title, posts_path(post_id: blog.id) %></h2>
+  <% if !request.fullpath.match /tag_filter/ %>
+    <div id="botones">
+      <%= render 'partials/botones', :blog => blog %>
+    </div>
+  <% end %>
+  <div id="content">
+    <%= raw blog.content %>
+  </div>
+  <% if !blog.tags.empty? %>
+    <div id="tags">
+      <p>Tags: 
+        <% blog.tags.each do |t| %>
+          <%= link_to t.name.humanize, tags_tag_filter_path, :class => "tag" %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+  <p id="firma">Enviado por <em class="big"><%= blog.author %></em> el <em class="big"><%= blog.updated_at.to_s(:mifecha) %></em> a las <em class="big"><%= blog.updated_at.to_s(:mihora) %></em>
+  </p>
+</div>

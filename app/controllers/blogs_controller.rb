@@ -15,6 +15,11 @@ class BlogsController < ApplicationController
 
 	def show
 		@blog = Blog.includes(:tags).find_by_id params[:post_id]
+		if @blog
+			@comments = @blog.comments.where(:deleted => false).order("created_at ASC")
+		else
+			@comments = []
+		end
 		render :index
 	end
 
