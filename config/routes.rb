@@ -1,4 +1,6 @@
 Agilesoft2::Application.routes.draw do
+  mount RedactorRails::Engine => '/redactor_rails'
+
   devise_for :users
 
   resources :comments, :only => [:create, :destroy]
