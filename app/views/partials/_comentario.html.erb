@@ -1,12 +1,24 @@
-<div class="comment" id="comment_<%= comentario.id %>">
-	<h3><%= comentario.author %></h3>
-	<div class="comment_content">
-		<%= sanitize comentario.content, :tags => %w(p br strong em u strike) %>
+<div class="comment container" id="comment_<%= comentario.id %>">
+	<div class="row">
+		<div class="span7">
+			<h4><small>Enviado por</small> <span class="big"><%= comentario.author %></span></h4>
+		</div>
+		<div class="span2 muted">
+			<h4><small>el <%= "#{comentario.updated_at.to_s(:mifecha)} a las #{comentario.updated_at.to_s(:mihora)}"%></small></h4>
+		</div>
 	</div>
-	<div class="comment_footer">
-		<%= "#{comentario.updated_at.to_s(:mifecha)} a las #{comentario.updated_at.to_s(:mihora)}"%>
-		<% if current_user %>
-			<%= link_to image_tag("bin_small.png"), comment_path(:id => comentario.id), :remote => true, :method => :delete %>
-		<% end %>
+	<div class="row">
+		<div class="comment_content span9">
+			<div class="well well-small">
+				<%= sanitize simple_format(comentario.content), :tags => %w(p br strong em u strike) %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="comment_footer span9">
+			<% if current_user %>
+				<%= link_to image_tag("bin_small.png"), comment_path(:id => comentario.id), :remote => true, :method => :delete %>
+			<% end %>
+		</div>
 	</div>
 </div>

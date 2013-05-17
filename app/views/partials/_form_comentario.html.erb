@@ -1,18 +1,41 @@
-<div class="boton_cerrar" onclick="$('#add_comentario').hide();"></div>
-<%= form_tag( comments_path(:post_id => @blog.id),:remote=>true) do |f| %>
+<% if flash[:alert] %>
+  <div class="row">
+    <div class="span9">
+      <div class="alert alert-error">
+        <%= flash[:alert] %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<h3>Publicar comentario:</h3>
+<%= form_tag comments_path :post_id => @blog.id do |f| %>
   <%= hidden_field_tag 'post_id' %>
 
-  <div class="field">
-    <%= label_tag :autor %>
-    <br/>
-    <%= text_field_tag :author %>
+  <div id="mandatory">
+    <%= text_field_tag "comment[mandatory]" %>
   </div>
 
-  <div class="field">
-    <%= cktext_area("comment", "content", :value => @comment.content, :toolbar => "Simple", :input_html => {:name => 'comment[content]'}) %>
+  <div class="row">
+    <div class="span1">
+      <%= label_tag :autor %>
+    </div>
+    <div class="span8">
+      <%= text_field_tag "comment[author]" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= submit_tag "Enviar comentario" %>
+  <div class="row">
+    <div class="span1">
+      <%= label_tag :comentario %>
+    </div>
+    <div class="span8">
+      <%= text_area_tag "comment[content]", nil, :rows => 4 %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span8 offset1">
+      <%= submit_tag "Enviar comentario", :class => "btn" %>
+    </div>
   </div>
 <% end %>

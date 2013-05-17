@@ -1,7 +1,21 @@
-<div id="comments">
+<div id="comments" class="container">
 	<% if comments && comments.length > 0 %>
+		<% if flash[:notice] %>
+			<div class="row">
+				<div class="span9">
+					<div class="alert alert-success">
+					  <%= flash[:notice] %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+		<h3>Comentarios:</h3>
 		<% for comment in comments %>
-			<%= render 'partials/comentario', :comentario => comment %>
+			<div class="row">
+				<div class="span9">
+					<%= render 'partials/comentario', :comentario => comment %>
+				</div>
+			</div>
 		<% end %>
 	<% end %>
 </div>

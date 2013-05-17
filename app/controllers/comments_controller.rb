@@ -12,6 +12,11 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = Comment.create author: params[:author], content: params[:comment][:content], blog_id: params[:post_id], deleted: false
+		comment = Comment.create author: params[:comment][:author], content: params[:comment][:content], blog_id: params[:post_id], deleted: false
+		if comment.errors.empty? and params[:comment][:mandatory].empty?
+			redirect_to "#{posts_path(:post_id => params[:post_id])}#comments", :notice => "Comentario guardado correctamente"
+		else
+			redirect_to "#{posts_path(:post_id => params[:post_id])}#form_comentario", :alert => "Error guardando comentario"
+		end
 	end
 end

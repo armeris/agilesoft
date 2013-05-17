@@ -1,22 +1,38 @@
-<div id="post">
-  <h2 id="post_title"><%= link_to blog.title, posts_path(post_id: blog.id) %></h2>
-  <% if !request.fullpath.match /tag_filter/ %>
-    <div id="botones">
-      <%= render 'partials/botones', :blog => blog %>
+<div id="post" class="container">
+  <div class="row">
+    <div class="span6">
+      <h3 id="post_title"><%= link_to blog.title, posts_path(post_id: blog.id) %></h3>
     </div>
-  <% end %>
-  <div id="content">
-    <%= raw blog.content %>
+    <% if !request.fullpath.match /tag_filter/ %>
+      <div class="span3 text-right">
+        <div id="botones">
+          <%= render 'partials/botones', :blog => blog %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="span9">
+      <div id="content" class="well">
+        <%= raw blog.content %>
+      </div>
+    </div>
   </div>
   <% if !blog.tags.empty? %>
-    <div id="tags">
-      <p>Tags: 
-        <% blog.tags.each do |t| %>
-          <%= link_to t.name.humanize, tags_tag_filter_path, :class => "tag" %>
-        <% end %>
-      </p>
+    <div id="tags" class="row">
+      <div class="span9">
+        <p>Tags: 
+          <% blog.tags.each do |t| %>
+            <span class="label label-info"><%= link_to t.name.humanize, tags_tag_filter_path, :class => "tag" %></span>
+          <% end %>
+        </p>
+      </div>
     </div>
   <% end %>
-  <p id="firma">Enviado por <em class="big"><%= blog.author %></em> el <em class="big"><%= blog.updated_at.to_s(:mifecha) %></em> a las <em class="big"><%= blog.updated_at.to_s(:mihora) %></em>
-  </p>
+  <div class="row">
+    <div class="span9">
+      <p id="firma" class="text-center">Publicado por <span class="big"><%= blog.author %></span> el <%= blog.updated_at.to_s(:mifecha) %> a las <%= blog.updated_at.to_s(:mihora) %>
+      </p>
+    </div>
+  </div>
 </div>

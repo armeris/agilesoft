@@ -88,7 +88,7 @@ class BlogsController < ApplicationController
 	end
 
 	def post_list
-		@list = Blog.all.order("updated_at DESC")
+		@list = Blog.order("updated_at DESC")
 	end
 
 	def visible_post

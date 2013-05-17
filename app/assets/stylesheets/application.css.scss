@@ -1,0 +1,78 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require redactor-rails
+ *= require_tree . 
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+body{
+
+	h1 {
+		font-size:18px;
+		font-weight:bold;
+		text-align:center;
+		padding-top:30px;
+	}
+
+	div#header{
+
+		h1{
+			text-align: left;
+			font-size:62px;
+			text-shadow: 0.05em 0.05em #cccccc;
+
+			a, a:visited{
+				color:black;
+			}
+			
+			a:hover{
+				text-decoration: none;
+			}
+		}
+	}
+
+	div#post{
+		h3#post_title{
+			a, a:visited{
+				color: black;
+			}
+		}
+
+		div#content.well{
+			margin-bottom:5px;
+		}
+
+		div#tags{
+			p{
+				font-size:10px;
+			}
+			span.label-info{
+				a{
+					font-size:10px;
+					color:white;
+				}
+				a:hover{
+					text-decoration:none;
+				}
+			}
+		}
+	}
+	#mandatory{
+		display:none;
+	}
+	#comment_content{
+		width: 70%;
+	}
+	.big{
+		font-size:20px;
+		font-weight: bold;
+		font-family: 'Swanky and Moo Moo';
+	}
+}

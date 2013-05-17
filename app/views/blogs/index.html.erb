@@ -1,12 +1,14 @@
 <% if !@blog %>
   <h1 class="message">¡No hay ningún post!</h1>
 <% else %>
-  <div id="add_comentario">
-    <%= render 'partials/form_comentario' %>
-  </div>
   <div id="main_content">
     <%= render 'partials/post', :blog => @blog %>
+    <hr/>
     <%= render 'partials/comentarios', :comments => @comments %>
+    <hr/>
+    <div id="form_comentario">
+    	<%= render 'partials/form_comentario' %>
+    </div>
   </div>
   
 <% end %>

@@ -1,7 +1,0 @@
-<% if !@comment.errors.empty? %>
-	alert("Error salvando comentario");
-<% else %>
-	$("#comments").append('<%= escape_javascript(render("partials/comentario",:comentario => @comment))%>');
-<% end %>
-$("#add_comentario").hide();
-$("#add_comentario input[name=content]").val("");

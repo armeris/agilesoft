@@ -12,15 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ckeditor/init
+//= require twitter/bootstrap
+//= require redactor-rails
 //= require_tree .
 
 $(document).ready(function(){
-	$("a#show_comment_form").click(function(e){
-		e.preventDefault();
-		add_comentario($(this).attr('data_ref'));
-	});
-
 	$("a.tag").click(function(){
 		if(location.href.match(/tag_filter/)){
 			var params = location.href.split("\?tags\=")

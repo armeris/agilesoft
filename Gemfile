@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
+ruby "2.0.0"
+
 gem 'rails', '~> 3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,11 +19,12 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
 gem 'devise'
-gem 'ckeditor'
+gem 'redactor-rails'
 gem 'newrelic_rpm'
 
 # To use ActiveModel has_secure_password

@@ -28,7 +28,7 @@
   <div class="field">
     <%= label_tag :contenido %>
     <br/>
-    <%= cktext_area_tag("content", @blog.content, :toolbar => 'Easy', :input_html => {:name => 'blog[content]'}) %>
+    <%= text_area_tag :content, @blog.content, :class => "redactor", :rows => 40, :cols => 120 %>
   </div>
 
   <div class="field">

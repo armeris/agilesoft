@@ -9,7 +9,7 @@ class TagsController < ApplicationController
 			@blogs = @tag_filter.map{|t| t.blogs}.inject(:&)
 		else
 			@tag_filter = []
-			@blogs = Blog.all
+			@blogs = Blog.where(:visible => true).order("created_at DESC")
 		end
 	end
 
