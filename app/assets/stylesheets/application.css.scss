@@ -74,4 +74,13 @@ body{
 		font-weight: bold;
 		font-family: 'Swanky and Moo Moo';
 	}
+	textarea#content{
+		width:100%;
+	}
+	select#blog_updated_at_1i, select#blog_updated_at_2i{
+		width: 100px;
+	}
+	select#blog_updated_at_3i, select#blog_updated_at_4i, select#blog_updated_at_5i{
+		width: 50px;
+	}
 }
