@@ -42,9 +42,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (0.8.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -97,8 +94,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
-    mini_magick (3.5.0)
-      subexec (~> 0.2.1)
     multi_json (1.7.3)
     newrelic_rpm (3.6.2.96)
     nokogiri (1.5.9)
@@ -131,10 +126,6 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    redactor-rails (0.3.3)
-      devise
-      mime-types
-      orm_adapter
     ref (1.0.4)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
@@ -158,7 +149,6 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
-    subexec (0.2.3)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -190,7 +180,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  carrierwave
   coffee-rails (~> 3.2.1)
   cucumber-rails
   cucumber-rails-training-wheels
@@ -198,11 +187,9 @@ DEPENDENCIES
   devise
   jquery-rails
   less-rails
-  mini_magick
   newrelic_rpm
   pg
   rails (~> 3.2.11)
-  redactor-rails
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   sqlite3

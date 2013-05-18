@@ -25,9 +25,6 @@ end
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'devise'
-gem 'redactor-rails'
-gem 'carrierwave'
-gem 'mini_magick'
 gem 'newrelic_rpm'
 
 # To use ActiveModel has_secure_password
