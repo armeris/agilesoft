@@ -48,7 +48,7 @@ class BlogsController < ApplicationController
 		
 		@blog.author = params[:author]
 		@blog.title = params[:title]
-		@blog.content = params[:blog][:content]
+		@blog.content = params[:content]
 		if !params[:post_id].nil? and !params[:post_id].empty?
 			@blog.visible = true
 		else
