@@ -4,5 +4,5 @@
 <% end %>
 
 <%= link_to image_tag("twitter_bird.png", :size => "48x48"), "https://twitter.com/share?url=http://www.agilesoft.es/posts/#{blog.id}&via=agilesoft_es&text=#{(blog.content[0..100]+"...").gsub(/<\/?[^>]*>/, "")}&lang=es", :target => "_blank" %>
-<%= link_to image_tag("facebook.png", :size => "48x48"), "https://facebook.com/sharer.php?u=http://www.agilesoftes/posts/#{blog.id}", :target => "_blank" %>
-<%= link_to image_tag("google_plus.png", :size => "48x48"), "https://plus.google.com/share?url=http://www.agilesoftes/posts/#{blog.id}", :target => "_blank" %>
+<%= link_to image_tag("facebook.png", :size => "48x48"), "https://facebook.com/sharer.php?u=http://www.agilesoft.es/posts/#{blog.id}", :target => "_blank" %>
+<%= link_to image_tag("google_plus.png", :size => "48x48"), "https://plus.google.com/share?url=http://www.agilesoft.es/posts/#{blog.id}", :target => "_blank" %>
