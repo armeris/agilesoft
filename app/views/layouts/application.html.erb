@@ -84,7 +84,7 @@
             <% end %>
           </div>
 
-          <% if current_user %>
+          <% if user_signed_in? %>
             <%= render 'partials/admin_panel' %>
           <% end %>
 
