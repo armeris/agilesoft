@@ -16,6 +16,9 @@ Agilesoft2::Application.routes.draw do
 
   get "/about" => "home#about"
 
+  get "sitemap.xml" => "home#sitemap", as: "sitemap", defaults: { format: "xml" }
+  get "/ping" => "home#ping"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
