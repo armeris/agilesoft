@@ -20,8 +20,10 @@ Feature: Add tags
 		And I fill "content" with "Test post"
 		And I fill "tags" with "ruby, heroku"
 		And I click "Guardar" button
-		And I visit last blog
-		Then I should see "Ruby, Heroku"
+		And I visit last blog 
+		Then I should see ".tag"
+		And I should see "Ruby"
+		And I should see "Heroku"
 	
 	Scenario: I have a field with tags in blog editing page
 		Given that there is one admin user
@@ -40,4 +42,6 @@ Feature: Add tags
 		And I fill "tags" with "ruby, heroku"
 		And I click "Guardar" button
 		Then I should see "#tags"
-		And I should see "Ruby, Heroku"
+		Then I should see ".tag"
+		And I should see "Ruby"
+		And I should see "Heroku"

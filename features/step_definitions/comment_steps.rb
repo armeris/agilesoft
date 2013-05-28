@@ -9,7 +9,11 @@ Given /^there is one post in the blog$/ do
 end
 
 When /^I click "(.*)" link$/ do |id|
-	click_link id.downcase.gsub!(" ","_")
+	begin
+		click_link id
+	rescue Capybara::ElementNotFound => e
+		click_link id.downcase.gsub!(" ","_")
+	end
 end
 
 When /^I click "(.*)" button$/ do |button|
