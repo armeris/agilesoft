@@ -11,10 +11,6 @@
 <%= form_tag comments_path :post_id => @blog.id do |f| %>
   <%= hidden_field_tag 'post_id' %>
 
-  <div id="mandatory">
-    <%= text_field_tag "comment[mandatory]" %>
-  </div>
-
   <div class="row">
     <div class="span1">
       <%= label_tag :autor %>
