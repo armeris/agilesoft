@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
   private
 
   def check_spam
-  	client = Akismet::Client.new( 'your-api-key',
+  	client = Akismet::Client.new( ENV['AKISMET_API_KEY'],
   		'http://www.agilesoft.es',
   		:app_name => 'agilesoft.es',
   		:app_version => '1.0' )
