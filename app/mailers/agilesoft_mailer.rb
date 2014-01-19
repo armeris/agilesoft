@@ -1,5 +1,5 @@
 class AgilesoftMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "comments@agilesoft.es"
 
   def comment_email(comment)
   	@comment = comment
